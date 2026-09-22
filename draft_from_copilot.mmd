@@ -16,15 +16,15 @@ classDiagram
         +list items
         +add_item(Item item)
         +filter_by_category(String category) list
-        +sort_by_popularity() list
     }
 
     class Order {
         +list items
+        +Customer customer
         +add_item(Item item)
         +compute_total() float
     }
 
-    Customer "1" --> "*" Order : places
-    Order "1" --> "*" Item : contains
-    Menu "1" --> "*" Item : holds
+    Customer --> Order
+    Order --> Item
+    Menu --> Item
