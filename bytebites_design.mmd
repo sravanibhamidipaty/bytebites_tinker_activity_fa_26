@@ -1,0 +1,27 @@
+classDiagram
+    class Customer {
+        +String name
+        +list purchase_history
+        +verify_user() bool
+    }
+
+    class Item {
+        +String name
+        +float price
+        +String category
+        +float popularity_rating
+    }
+
+    class Menu {
+        +list items
+        +filter_by_category(String category) list
+    }
+
+    class Order {
+        +list items
+        +compute_total() float
+    }
+
+    Customer "1" --> "*" Order : places
+    Order "1" --> "*" Item : contains
+    Menu "1" --> "*" Item : holds
